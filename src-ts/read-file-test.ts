@@ -1,7 +1,10 @@
 import * as fs from 'fs';
 import * as rd from 'readline'
+import * as path from 'path'
 
-var reader = rd.createInterface(fs.createReadStream("C:\\appdev\\vs\\adventofcode2021\\text-assets\\pokemon.txt"))
+var filenPath = path.join(__dirname, '..', 'text-assets', 'pokemon.txt');
+console.log(`filenPath: ${filenPath}`);
+var reader = rd.createInterface(fs.createReadStream(filenPath))
 
 //id,identifier,species_id,height,weight,base_experience,order,is_default
 var data: Array<{ 

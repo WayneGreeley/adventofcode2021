@@ -39,14 +39,9 @@ reader.on("close", ()=> {
         //If 0 and 1 are equally common, keep values with a 1 
         const mostCommon: number = (MyMap.get(0) > MyMap.get(1) ? 0 : 1)
         
-        
-        // console.log(`Block statement execution no: ${a}  oxygen.length: ${oxygen.length}   mostCommon: ${mostCommon} ` )
-        // console.log(`MyMap : ${MyMap.get(0)}   ${MyMap.get(1)} ` )
-        
         if(oxygen.length > 1){
             oxygen = oxygen.filter( x => (parseInt(x.tokens[a]) == mostCommon));
         }
-        // console.log(oxygen); 
         
         a++;
     } while ( a < binLength && oxygen.length > 1)
@@ -70,14 +65,9 @@ reader.on("close", ()=> {
         //If 0 and 1 are equally common, keep values with a 0
         const lessCommon: number = (MyMap.get(1) < MyMap.get(0) ? 1 : 0)
         
-        
-        // console.log(`Block statement execution no: ${c}  carbon.length: ${carbon.length}   lessCommon: ${lessCommon} ` )
-        // console.log(`MyMap : ${MyMap.get(0)}   ${MyMap.get(1)} ` )
-        
         if(carbon.length > 1){
             carbon = carbon.filter( x => (parseInt(x.tokens[c]) == lessCommon));
         }
-        // console.log(carbon); 
         
         c++;
     } while ( c < binLength && carbon.length > 1)

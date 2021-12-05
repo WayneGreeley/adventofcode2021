@@ -66,6 +66,8 @@ reader1.on("close", () => {
   let winner: number = -1;
   let winningBall: number = -1;
 
+  let boardsRemaining: number = bingoBoardNumbers.length;
+
   let turnNumber: number = 0;
   //main game loop
   do {
@@ -75,14 +77,24 @@ reader1.on("close", () => {
     }
 
     //checkIt
+    // console.log(
+    //   `turnNumber: ${turnNumber}   boardsRemaining: ${boardsRemaining}    bingoNumbers[turnNumber]: ${bingoNumbers[turnNumber]}      `
+    // );
     for (var b = 0; b < bingoBoardNumbers.length; b++) {
-      if (bingoBoards[b].checkIt()) {
-        winner = b;
-        winningBall = bingoNumbers[turnNumber];
-        console.log(
-          "--------------------------------- we have a winner  " + winningBall
-        );
-        bingoBoards[b].printIt();
+      if (!bingoBoards[b].hasWon) {
+        //dont check it if it already won
+        if (bingoBoards[b].checkIt()) {
+          if (boardsRemaining == 1) {
+            winner = b;
+            winningBall = bingoNumbers[turnNumber];
+            console.log(
+              "--------------------------------- we have a winner  " +
+                winningBall
+            );
+            bingoBoards[b].printIt();
+          }
+          boardsRemaining--;
+        }
       }
     }
 

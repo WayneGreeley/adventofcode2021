@@ -1,5 +1,5 @@
 //const point = require("./point");
-class point {
+class box {
   value: number;
   marked: boolean;
 
@@ -8,7 +8,7 @@ class point {
     this.marked = false;
   }
 
-  printPt(): string {
+  printBox(): string {
     if (this.marked) {
       return "(" + this.value + ")";
     }
@@ -17,17 +17,14 @@ class point {
 }
 
 class bingoBoard {
-  //TODO mark card method
-  //TODO check for bingo method
-
-  matrix: Array<Array<point>> = [];
+  matrix: Array<Array<box>> = [];
   hasWon: boolean = false;
 
   constructor(arr: Array<number>) {
     for (var i = 0; i < 5; i++) {
-      let tempArray: Array<point> = [];
+      let tempArray: Array<box> = [];
       for (var j = 0; j < 5; j++) {
-        tempArray.push(new point(arr.shift()));
+        tempArray.push(new box(arr.shift()));
       }
       this.matrix[i] = tempArray;
     }
@@ -36,11 +33,11 @@ class bingoBoard {
   printIt() {
     for (var i = 0; i < 5; i++) {
       console.log(
-        `  ${this.matrix[i][0].printPt()}  ${this.matrix[
+        `  ${this.matrix[i][0].printBox()}  ${this.matrix[
           i
-        ][1].printPt()}  ${this.matrix[i][2].printPt()}  ${this.matrix[
+        ][1].printBox()}  ${this.matrix[i][2].printBox()}  ${this.matrix[
           i
-        ][3].printPt()}  ${this.matrix[i][4].printPt()}    `
+        ][3].printBox()}  ${this.matrix[i][4].printBox()}    `
       );
     }
   }

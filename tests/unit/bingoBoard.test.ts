@@ -17,7 +17,7 @@ test("adds 1 + 3 to equal 4", () => {
   ];
   let bb = new bingoBoard(numbers);
   bb.markIt(3);
-  bb.printIt();
+  //bb.printIt();
   expect(1 + 3).toBe(4);
 });
 
@@ -43,7 +43,7 @@ test("row bingo", () => {
   bb.markIt(3);
   bb.markIt(4);
   bb.markIt(5);
-  bb.printIt();
+  //bb.printIt();
   expect(bb.checkIt()).toBe(true);
 });
 
@@ -58,7 +58,7 @@ test("column bingo", () => {
   bb.markIt(11);
   bb.markIt(16);
   bb.markIt(21);
-  bb.printIt();
+  //bb.printIt();
   expect(bb.checkIt()).toBe(true);
 });
 

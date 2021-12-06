@@ -1,44 +1,43 @@
-interface MyNode {
+class treeNode {
   value: number;
-  left?: MyNode;
-  right?: MyNode;
+  left: treeNode | null;
+  right: treeNode | null;
+
+  constructor(value: number) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
 }
 
 class bst {
 
-    root: MyNode;
+    root: treeNode | null;
 
-  constructor() {
-      this.root = null;
-  }
-
-    insertValue(value: number){
-        this.insert (this.root, value)
+    constructor(root?: treeNode | null){
+        this.root = root || null
     }
-    /**
-    * Insert a value in the tree
-    *
-    * @param {MyNode} root - The root of the tree
-    * @param {number} value - The value to insert
-    * @returns {MyNode}
-    */
-    insert (root: MyNode, value: number): MyNode {
-        if(root.value === undefined){
-            root = { value: value, left: undefined, right: undefined }
-        } else if (value > root.value) {
-            if (root.right === undefined) {
-              root.right = { value: value, left: undefined, right: undefined };
+
+    insert (node: treeNode | null = this.root, value: number): treeNode {
+        if(node === null){
+            const head = new treeNode(value)
+            return head;
+        } else {
+            if (value > node.value) {
+                  node.right = this.insert(node.right, value);
             } else {
-              this.insert(root.right, value);
+                  node.left = this.insert(node.left, value);
             }
-        } else if (value < root.value) {
-            if (root.left === undefined) {
-              root.left = { value: value, left: undefined, right: undefined };
-            } else {
-              this.insert(root.left, value);
-            }
+            return node;
         }
-      return root;
     };
 }
-module.exports = bst;
+
+let n = new treeNode(8);
+console.log(n);
+
+let bt = new bst(n);
+bt.insert(n, 10);
+bt.insert(n, 7);
+bt.insert(n, 9);
+console.log(bt);

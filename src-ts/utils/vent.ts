@@ -1,4 +1,4 @@
-const dim = 1000;
+const dim = 10;
 class vent {
   matrix: Array<Array<number>> = [];
   highestValue: number = 0;

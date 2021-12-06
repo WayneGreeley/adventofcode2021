@@ -6,7 +6,7 @@ test("adds 1 + 2 to equal 3", () => {
     22, 23, 24, 25,
   ];
   let bb = new bingoBoard(numbers);
-  bb.printIt();
+  //bb.printIt();
   expect(1 + 2).toBe(3);
 });
 
@@ -28,7 +28,7 @@ test("not a bingo", () => {
   ];
   let bb = new bingoBoard(numbers);
   bb.markIt(3);
-  bb.printIt();
+  //bb.printIt();
   expect(bb.checkIt()).toBe(false);
 });
 

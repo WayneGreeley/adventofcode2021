@@ -25,3 +25,9 @@ or
 
 ts-node 1.1.ts
 ```
+
+consider
+```
+npm i ts-jest --save-dev
+npx ts-jest config:init
+```

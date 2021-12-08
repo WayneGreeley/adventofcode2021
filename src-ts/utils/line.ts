@@ -30,4 +30,4 @@ class line {
     console.log("[" + this.start.printPt() + " -> " + this.end.printPt() + "]");
   }
 }
-module.exports = line;
+export default line;
